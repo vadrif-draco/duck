@@ -11,7 +11,7 @@ import { Duck } from "../../interfaces/duck-interface";
       <h2>{{ duck.name }}</h2>
       <p>Habitat: {{ duck.habitat }}</p>
       <div *ngIf="showDetails" class="details">
-        <p>{{ duck.fact }}</p>
+        <p style="white-space: pre-line">{{ duck.fact }}</p>
       </div>
     </div>
   `,
@@ -22,6 +22,8 @@ import { Duck } from "../../interfaces/duck-interface";
         padding: 1rem;
         margin: 1rem;
         cursor: pointer;
+        min-width: 240px;
+        max-width: 280px;
       }
       .endangered {
         border: 2px solid red;
@@ -30,6 +32,8 @@ import { Duck } from "../../interfaces/duck-interface";
         width: 200px;
         height: 150px;
         object-fit: cover;
+        margin: auto;
+        display: block;
       }
     `,
   ],

@@ -6,11 +6,12 @@ import { NavigationComponent } from "./components/navigation/navigation.componen
 @Component({
   standalone: true,
   selector: "app-root",
-  imports: [NavigationComponent, RouterOutlet], // XXX: What is the purpose of imports? What can I import? (e.g. built-in components like RouterOutlet or custom components like NavigationComponent)
+  // XXX: What is the purpose of imports? What can I import? (e.g. built-in components like RouterOutlet or custom components like NavigationComponent)
+  imports: [NavigationComponent, RouterOutlet],
   template: `
     <!-- XXX: Where is this tagname associated with the navigation component? -->
     <app-navigation></app-navigation>
-    <!-- XXX: Nani tf is router-outler? -->
+    <!-- XXX: Nani tf is router-outlet? -->
     <router-outlet></router-outlet>
   `,
   styles: [

@@ -58,6 +58,15 @@ export class DuckService {
       fact: "Nests in tree cavities!",
       isEndangered: false,
     },
+    {
+      id: 7,
+      name: "Call Duck",
+      // imageUrl: "https://ogden_images.s3.amazonaws.com/www.iamcountryside.com/images/sites/3/2020/12/13113627/GettyImages-695733614.jpg",
+      imageUrl: "assets/Call.jpg",
+      habitat: "Domesticated by humans!",
+      fact: "They are the cutest of them all\n❤️❤️❤️",
+      isEndangered: false,
+    },
   ];
 
   getDucks(): Duck[] {
