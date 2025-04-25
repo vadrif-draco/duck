@@ -39,7 +39,6 @@ import { Duck } from "../../interfaces/duck-interface";
   ],
 })
 export class DuckComponent {
-  // XXX: What does this '!' mean? Is it a type assertion or a non-null assertion? What is the difference between them?
   @Input() duck!: Duck;
   showDetails = false;
 
