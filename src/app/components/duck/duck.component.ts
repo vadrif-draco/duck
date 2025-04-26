@@ -26,36 +26,36 @@ import { TruncatePipe } from "../../pipes/truncate.pipe";
       }"
       (click)="toggleDetails()"
     >
-      <!-- #07 Pipes -->
-      <!-- #07a Built-in Pipes -->
+      <!-- #08 Pipes -->
+      <!-- #08a Built-in Pipes -->
       <!-- Pipes transform data before displaying it in the template -->
       <small>Added to database: {{ duck.id > 3 ? "2025" : ("2024" | date : "shortDate") }}</small>
-      <br/>
-      <br/>
+      <br />
+      <br />
 
       <!-- #04b Bind to src attribute with image URL from component property -->
       <img [src]="duck.imageUrl" [alt]="duck.name" />
 
       <!-- #04c Interpolation with {{ expression }} -->
-      <h2 >{{ duck.name }}</h2>
+      <h2>{{ duck.name }}</h2>
 
-      <!-- #05 Template Reference Variables -->
-      <!-- #ref creates a reference to a DOM element or directive that can be used elsewhere in the template -->
-      <p #habitatInfo>Habitat: {{ duck.habitat }}</p>
+      <p>Habitat: {{ duck.habitat }}</p>
 
       <!-- #04d Event Binding -->
       <!-- (event)="handler()" responds to user interactions -->
       <button class="favorite-btn" (click)="favoriteClicked($event)">❤️ Favorite</button>
 
-      <!-- #07b Custom Pipes -->
+      <!-- #08b Custom Pipes -->
       <!-- You can create your own pipes for custom data transformations -->
       <p *ngIf="!showDetails">{{ duck.fact | truncate : 30 }}</p>
 
-      <!-- #05 Structural Directives -->
-      <!-- #05a *ngIf conditionally includes/excludes elements from DOM -->
-      <!-- #06a Attribute Directives -->
-      <!-- Unlike structural directives, they change the appearance or behavior of an element -->
+      <!-- #06 Directives Overview -->
+      <!-- #06a Structural Directives -->
+      <!-- Structural directives change DOM layout (*ngIf, *ngFor, etc) -->
+      <!-- *ngIf conditionally includes/excludes elements from DOM -->
       <div *ngIf="showDetails" class="details">
+        <!-- #06b Attribute Directives -->
+        <!-- Unlike structural directives, they change the appearance or behavior of an element -->
         <p appHighlight style="white-space: pre-line">{{ duck.fact }}</p>
       </div>
     </div>
@@ -115,21 +115,21 @@ import { TruncatePipe } from "../../pipes/truncate.pipe";
   ],
 })
 export class DuckComponent {
-  // #08 Component Properties
+  // #09 Component Properties
 
-  // #08a Input Properties
+  // #09a Input Properties
   // @Input() decorator marks a property to receive data from parent component
   @Input() duck!: Duck; // The '!' is a non-null assertion operator
 
-  // #08b Output Properties
+  // #09b Output Properties
   // @Output() creates a custom event that parent components can listen to
   @Output() favorite = new EventEmitter<Duck>();
 
-  // #08c Component State
+  // #09c Component State
   // Properties track the component's internal state
   showDetails = false;
 
-  // #08d Component Methods
+  // #09d Component Methods
   // Methods handle user interactions and other logic
   toggleDetails() {
     this.showDetails = !this.showDetails;
@@ -139,7 +139,7 @@ export class DuckComponent {
   favoriteClicked(event: Event) {
     // Stop event propagation to prevent triggering the card's click event
     event.stopPropagation();
-    // Emit the duck object to the parent component
+    // #10b Emit the duck object to the parent component
     this.favorite.emit(this.duck);
   }
 }

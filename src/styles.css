@@ -1,9 +1,9 @@
-/* #13 Global Styles */
-/* #13a Global CSS */
+/* #15 Global Styles */
+/* #15a Global CSS */
 /* Styles defined here apply to the entire application */
 /* Unlike component styles which are scoped to their component */
 
-/* #13b Global Element Styling */
+/* #15b Global Element Styling */
 /* This style applies to all elements in the application */
 * {
     font-family: Arial;

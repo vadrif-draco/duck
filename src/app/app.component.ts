@@ -6,26 +6,26 @@ import { CommonModule } from "@angular/common";
 import { DuckService } from "./services/duck.service";
 import { Duck } from "./interfaces/duck-interface";
 
-// #19 Root Component
+// #20 Root Component
 // The AppComponent is the main entry point for the Angular application
 @Component({
   standalone: true,
   selector: "app-root",
-  // #19a Importing Components and Directives
+  // #20a Importing Components and Directives
   // Components used in the template must be imported
   imports: [NavigationComponent, RouterOutlet, FancyDuckComponent, CommonModule],
   template: `
-    <!-- #19b Application Shell -->
+    <!-- #20b Application Shell -->
     <!-- The app component typically provides the overall layout structure -->
     <header>
       <h1>Duck Encyclopedia</h1>
-      <!-- #19c Navigation Integration -->
+      <!-- #20c Navigation Integration -->
       <!-- Including the navigation component for app routing -->
       <app-navigation></app-navigation>
     </header>
 
     <main>
-      <!-- #19d Content Projection Example -->
+      <!-- #20d Content Projection Example -->
       <!-- This is just a demo of the FancyDuckComponent with content projection -->
       <div class="featured-duck-container">
         <div *ngIf="showFancyDuck && featuredDuck" class="featured-duck">
@@ -41,7 +41,7 @@ import { Duck } from "./interfaces/duck-interface";
         </div>
       </div>
 
-      <!-- #19e Router Outlet -->
+      <!-- #20e Router Outlet -->
       <!-- RouterOutlet is where components specified in routes will be rendered -->
       <router-outlet></router-outlet>
     </main>
@@ -107,17 +107,17 @@ import { Duck } from "./interfaces/duck-interface";
   ],
 })
 export class AppComponent implements OnInit {
-  // #19f Root Component Properties
+  // #20f Root Component Properties
   title = "Duck Encyclopedia";
 
   // Featured duck data now fetched from service
   featuredDuck: Duck | undefined;
-  showFancyDuck = true;
+  showFancyDuck = false;
 
-  // #19g Dependency Injection
+  // #20g Dependency Injection
   constructor(private duckService: DuckService) {}
 
-  // #19h Lifecycle Hook
+  // #20h Lifecycle Hook
   ngOnInit() {
     // Get the featured duck from the service
     this.featuredDuck = this.duckService.getFeaturedDuck();

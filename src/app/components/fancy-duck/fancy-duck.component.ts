@@ -2,7 +2,7 @@ import { Component, Input, ContentChild, ElementRef } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { Duck } from "../../interfaces/duck-interface";
 
-// #17 Advanced Component Techniques
+// #18 Advanced Component Techniques
 // This component demonstrates content projection and ContentChild
 @Component({
   selector: "app-fancy-duck",
@@ -15,7 +15,7 @@ import { Duck } from "../../interfaces/duck-interface";
       </header>
 
       <div class="content">
-        <!-- #17a Content Projection -->
+        <!-- #18a Content Projection -->
         <!-- <ng-content> acts as a placeholder for content from the parent -->
         <div class="projected-content">
           <ng-content></ng-content>
@@ -67,15 +67,15 @@ export class FancyDuckComponent {
   // Input property to receive duck data
   @Input() duck!: Duck;
 
-  // #17b ContentChild
+  // #18b ContentChild
   // Allows access to content that was projected into the component
   @ContentChild("projectedCaption") captionElement!: ElementRef;
 
   // NgAfterContentInit is the lifecycle hook where ContentChild becomes available
   ngAfterContentInit() {
-    // We can now access the projected content
+    // #18c We can now access the projected content
     if (this.captionElement) {
-      console.log("Projected caption:", this.captionElement.nativeElement.textContent);
+      alert(`Projected caption: ${this.captionElement.nativeElement.textContent}`);
     }
   }
 }
