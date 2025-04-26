@@ -1,13 +1,20 @@
 import { Injectable } from "@angular/core";
 import { Duck } from "../interfaces/duck-interface";
 
+// #02 Angular Services
+// Services are singleton objects that provide shared functionality across components
 @Injectable({ providedIn: "root" })
+// #02a @Injectable Decorator
+// This decorator marks the class as available for dependency injection
+// The 'providedIn: "root"' means this service is provided at the root level
+// and available throughout the application
 export class DuckService {
+  // #02b Data Storage
+  // Services commonly manage data that needs to be shared between components
   private mockDucks: Duck[] = [
     {
       id: 1,
       name: "Mallard",
-      // imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/DrakeMallardPortrait.png/330px-DrakeMallardPortrait.png",
       imageUrl: "assets/Mallard.png",
       habitat: "Lakes/Ponds",
       fact: "Mallards are the most common duck species in the Northern Hemisphere!",
@@ -16,7 +23,6 @@ export class DuckService {
     {
       id: 2,
       name: "Mandarin Duck",
-      // imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Aix_galericulata_male_portrait.jpg/330px-Aix_galericulata_male_portrait.jpg",
       imageUrl: "assets/Mandarin.jpg",
       habitat: "Forest Rivers",
       fact: "Mandarin ducks symbolize love in Chinese culture.",
@@ -25,7 +31,6 @@ export class DuckService {
     {
       id: 3,
       name: "Hawaiian Duck (Koloa)",
-      // imageUrl: "https://cdn.download.ams.birds.cornell.edu/api/v1/asset/187768091/1200",
       imageUrl: "assets/Koloa.jpg",
       habitat: "Hawaiian Wetlands",
       fact: "Critically endangered due to habitat loss.",
@@ -34,7 +39,6 @@ export class DuckService {
     {
       id: 4,
       name: "Laysan Duck",
-      // imageUrl: "https://upload.wikimedia.org/wikipedia/commons/7/78/Starr_080607-7217_Boerhavia_repens.jpg",
       imageUrl: "assets/Laysan.jpg",
       habitat: "Laysan Island",
       fact: "One of the rarest ducks globally, with fewer than 1,000 left.",
@@ -43,7 +47,6 @@ export class DuckService {
     {
       id: 5,
       name: "White-winged Duck",
-      // imageUrl: "https://cdn.download.ams.birds.cornell.edu/api/v2/asset/159974241/900",
       imageUrl: "assets/White-winged.jpg",
       habitat: "Southeast Asian Forests",
       fact: "Endangered due to deforestation.",
@@ -52,7 +55,6 @@ export class DuckService {
     {
       id: 6,
       name: "Wood Duck",
-      // imageUrl: "https://travisaudubon.org/home/wp-content/uploads/2018/01/APA_2016_Wood_Duck_Jess_Deitz_KK.jpg",
       imageUrl: "assets/Wood.jpg",
       habitat: "Swamps",
       fact: "Nests in tree cavities!",
@@ -61,15 +63,29 @@ export class DuckService {
     {
       id: 7,
       name: "Call Duck",
-      // imageUrl: "https://ogden_images.s3.amazonaws.com/www.iamcountryside.com/images/sites/3/2020/12/13113627/GettyImages-695733614.jpg",
       imageUrl: "assets/Call.jpg",
       habitat: "Domesticated by humans!",
       fact: "They are the cutest of them all\n❤️❤️❤️",
       isEndangered: false,
+      isFeatured: true, // Marking Call Duck as the featured duck
     },
   ];
 
+  // #02c Service Methods
+  // Public methods expose functionality to components that inject this service
   getDucks(): Duck[] {
     return this.mockDucks;
+  }
+
+  // #02d Single Item Retrieval
+  // Common pattern to get a single item by its unique identifier
+  getDuckById(id: number): Duck | undefined {
+    return this.mockDucks.find((duck) => duck.id === id);
+  }
+
+  // #02e Feature Flag Method
+  // Method to get the featured duck
+  getFeaturedDuck(): Duck | undefined {
+    return this.mockDucks.find((duck) => duck.isFeatured);
   }
 }

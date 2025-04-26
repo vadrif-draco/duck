@@ -1,4 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
+/* #13 Global Styles */
+/* #13a Global CSS */
+/* Styles defined here apply to the entire application */
+/* Unlike component styles which are scoped to their component */
+
+/* #13b Global Element Styling */
+/* This style applies to all elements in the application */
 * {
     font-family: Arial;
 }
+
+/* You can add more global styles here that should be available throughout the application */

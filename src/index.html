@@ -1,13 +1,22 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Duck</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
-<body>
-  <app-root></app-root>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <title>Duck</title>
+    <!-- #12 Angular Application Structure -->
+    <!-- #12a Base href -->
+    <!-- This tag is critical for Angular routing to work correctly -->
+    <!-- It tells the browser to resolve all relative URLs from this base path -->
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  </head>
+  <body>
+    <!-- #12b Root Component Selector -->
+    <!-- This is where Angular bootstraps your application -->
+    <!-- In Angular, "bootstrapping" refers to the process of initializing and running an Angular application. -->
+    <!-- It involves loading the root module/component of the application and then compiling and launching the component tree. -->
+    <!-- The selector matches the one defined in AppComponent ("the root component") -->
+    <app-root></app-root>
+  </body>
 </html>
